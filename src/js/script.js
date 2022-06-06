@@ -59,4 +59,45 @@ $(document).ready(function(){
   toggleSlide('.catalog-item__link');
   toggleSlide('.catalog-item__back'); 
 
+  // window.addEventListener("resize", AutoScale);
+  // AutoScale();
+  // function AutoScale()
+  // {
+  //   let width = window.innerWidth;
+  //   if(width > 1280)
+  //   {
+  //     ChangeScale("big");
+  //   }
+  //   else if(width <= 1280 && width > 720)
+  //   {
+  //     ChangeScale("normal");
+  //   }
+  //   else if(width < 720)
+  //   {
+  //    ChangeScale("small");
+  //   }
+  // }
+
+  //modal 
+  $('[data-modal=consultation]').on('click', function()
+  {
+    $('.overlay, #consultation').fadeIn('slow');
+
+  });
+
+  $('.modal__close').on('click', function() { 
+    $('.overlay, #consultation, #thanks, #order').fadeOut('slow');
+  });
+
+ 
+
+    $('.button_mini').each(function(i){
+      $(this).on('click', function() {
+        $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text(''));
+        $('.overlay, #order').fadeIn('slow');
+        });
+    });
+
+
+    $('.feed-form').validate();
 });  
